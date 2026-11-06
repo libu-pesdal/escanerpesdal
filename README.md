@@ -1,30 +1,29 @@
 # Escáner de Vida PESDAL
 
-Herramienta de diagnóstico interactiva y gratuita 
-desarrollada por Constructores de Vida.
+Herramienta gratuita de LIBU · Constructores de Vida para mirar tu vida en 8 áreas
+y elegir por dónde empezar. No es un diagnóstico: es una lectura de cómo percibes
+hoy cada parte de tu vida.
 
-## ¿Qué es PESDAL?
+## Qué hay aquí
 
-PESDAL es un sistema de seis elementos que opera 
-en cada decisión y resultado de tu vida:
-Pensamiento → Emoción → Sentimiento → 
-Decisión → Acción → Logro
+- **index.html** — Escáner de Vida: mapa de las 8 áreas, área prioritaria,
+  Plano de Referencia y comparación con tu situación actual.
+- **comprende.html** — COMPRENDE: explora qué pieza del ciclo PESDAL
+  (Pensamiento, Emoción, Sentimiento, Decisión, Acción, Logro) conviene mirar
+  primero y termina con un compromiso concreto.
+- **sw.js** — permite instalarlo como app; siempre carga la versión más reciente.
+- **analytics/** — script de Google Apps Script para recibir los eventos de uso
+  en una hoja de cálculo propia.
 
-## ¿Para qué sirve el Escáner?
-
-- Identificar en qué elemento se rompe tu ciclo
-- Descubrir tu patrón de activación
-- Recibir tu plano de cambio personalizado
+Las respuestas se guardan solo en el navegador de cada persona.
 
 ## Accede al Escáner
 
-👉 [escanerpesdal.github.io/escanerpesdal]
+👉 https://libu-pesdal.github.io/escanerpesdal/
 
 ## Canal
 
-📺 Constructores de Vida by PESDAL
-[Link al canal de YouTube]
+📺 LIBU Constructores de Vida — https://www.youtube.com/@PESDAL
 
 ---
-Desarrollado por LIBU LLC · Todos los derechos reservados
-
+LIBU LLC · La vida se construye
