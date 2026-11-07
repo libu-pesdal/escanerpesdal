@@ -2,7 +2,7 @@
 // Estrategia network-first: siempre intenta la red primero para que las
 // actualizaciones publicadas en GitHub lleguen de inmediato. El caché solo
 // se usa cuando no hay conexión.
-const CACHE_NAME = 'pesdal-escaner-v4';
+const CACHE_NAME = 'pesdal-escaner-v5';
 const CORE = ['./', './index.html', './comprende.html', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', (event) => {

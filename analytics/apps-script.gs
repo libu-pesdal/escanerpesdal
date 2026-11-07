@@ -15,7 +15,7 @@
  * identificadores aleatorios de sesión y las opciones elegidas.
  */
 const SHEET_NAME = 'eventos';
-const HEADERS = ['recibido', 'fecha_evento', 'herramienta', 'version', 'evento', 'sesion', 'escaner', 'area', 'modo', 'datos'];
+const HEADERS = ['recibido', 'fecha_evento', 'herramienta', 'version', 'evento', 'sesion', 'escaner', 'area', 'modo', 'datos', 'origen', 'origen_primero'];
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -34,7 +34,9 @@ function doPost(e) {
       String(body.assessment || '').slice(0, 60),
       String(body.area || (body.data && body.data.area) || '').slice(0, 30),
       String(body.mode || (body.data && body.data.mode) || '').slice(0, 30),
-      JSON.stringify(body.data || {}).slice(0, 2000)
+      JSON.stringify(body.data || {}).slice(0, 2000),
+      String(body.origen || '').slice(0, 30),
+      String(body.origen_primero || '').slice(0, 30)
     ]);
     return ContentService.createTextOutput('ok');
   } catch (err) {
@@ -55,6 +57,9 @@ function getSheet_() {
     sheet = ss.insertSheet(SHEET_NAME);
     sheet.appendRow(HEADERS);
     sheet.setFrozenRows(1);
+  } else if (sheet.getRange(1, HEADERS.length).getValue() !== HEADERS[HEADERS.length - 1]) {
+    // Hoja creada con una versión anterior: agrega los encabezados nuevos.
+    sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
   }
   return sheet;
 }
