@@ -26,4 +26,4 @@ Las respuestas se guardan solo en el navegador de cada persona.
 📺 LIBU Constructores de Vida — https://www.youtube.com/@PESDAL
 
 ---
-LIBU LLC · La vida se construye
+LIBU · La vida se construye
