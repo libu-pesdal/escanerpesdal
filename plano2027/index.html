@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0E1A35"><link rel="icon" href="../icon.svg"><title>Plano 2027 · LIBU</title>
+<meta name="description" content="Plantilla gratis para mirar qué quedó bien construido en tu 2026 y elegir por dónde empezar en 2027.">
+<meta property="og:title" content="Plano 2027 · LIBU"><meta property="og:description" content="Mira qué quedó bien construido este año y elige por dónde empezar en 2027. Gratis.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--n:#0E1A35;--p:#152747;--g:#C9A84C;--i:#F4EFE6;--w:#FFFFFF;--dim:rgba(244,239,230,.74);--line:rgba(244,239,230,.14)}
+*{box-sizing:border-box}body{margin:0;background:var(--n);color:var(--i);font-family:'DM Sans',sans-serif}
+main{max-width:480px;margin:auto;padding:32px 24px 48px;min-height:100dvh}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--g)}
+h1{font-size:38px;font-weight:600;color:var(--w);margin:8px 0 20px}
+h2{font-size:18px;font-weight:600;color:var(--w);margin:0 0 10px}
+p{line-height:1.6;margin:0 0 14px}.lead{color:var(--dim)}.small{font-size:13px;color:var(--dim)}
+.card{background:var(--p);border:1px solid var(--line);border-radius:14px;padding:18px;margin:22px 0}
+ol{margin:0;padding-left:20px;line-height:1.7;color:var(--dim)}ol b{color:var(--i);font-weight:600}
+.btn{display:block;width:100%;min-height:52px;border-radius:11px;text-align:center;text-decoration:none;font-weight:700;padding:15px;margin:12px 0}
+.gold{background:var(--g);color:var(--n)}.line{border:1px solid var(--g);color:var(--g)}
+.ghost{border:1px dashed var(--line);color:var(--dim);font-weight:500}
+.time{display:flex;gap:10px;align-items:flex-start;color:var(--dim);font-size:14px}
+footer{text-align:center;margin-top:36px}.logo{font-size:34px;font-weight:700;color:var(--g);letter-spacing:-.02em}.tag{font-size:13px;color:var(--w)}
+</style></head><body><main>
+<div class="eyebrow">LIBU · NO REPITAS EL AÑO</div>
+<h1>Plano 2027</h1>
+<p>Puedes levantar una casa ladrillo a ladrillo, con mucho esfuerzo, y descubrir después que no dejaste espacio para lo que más necesitabas.</p>
+<p class="lead">Con la vida pasa igual. Este año trabajaste, resolviste problemas y avanzaste. Pero antes de hacer planes para 2027, mira primero qué quedó bien construido y qué necesita atención. Este plano te ayuda a hacerlo.</p>
+
+<a class="btn gold" id="copia" href="https://docs.google.com/document/d/1fYtoEVGr94KgzRsrHjaxbRUUXCyKBnePBHX3rHoTdek/copy" target="_blank" rel="noopener">HACER MI COPIA GRATIS →</a>
+<p class="small">Se abre en Google Docs y crea una copia solo para ti. Necesitas una cuenta de Google.</p>
+<a class="btn line" id="pdf" href="https://docs.google.com/document/d/1fYtoEVGr94KgzRsrHjaxbRUUXCyKBnePBHX3rHoTdek/export?format=pdf" target="_blank" rel="noopener">DESCARGAR PDF PARA IMPRIMIR</a>
+
+<section class="card">
+<h2>Lo que vas a hacer</h2>
+<ol>
+<li><b>Cómo estás hoy:</b> ponle un número a tus ocho áreas.</li>
+<li><b>Cómo quieres estar:</b> escribe cómo estaría bien cada una, para ti.</li>
+<li><b>Por dónde empiezas:</b> elige una sola área y tu primer paso, con día y hora.</li>
+<li><b>Lo demás, sin abandonarlo:</b> un acuerdo pequeño para las otras siete.</li>
+<li><b>Tu día:</b> unas preguntas en la mañana y en la noche.</li>
+<li><b>El domingo, revisa la obra:</b> mira cómo vas y ajusta.</li>
+</ol>
+</section>
+<p class="time">Llenarlo te tomará entre 20 y 30 minutos. Después, unos 10 minutos al día: 5 en la mañana y 5 en la noche.</p>
+
+<a class="btn ghost" id="escaner" href="../">¿No sabes por dónde empezar? Haz primero tu Escáner de Vida</a>
+
+<footer><div class="logo">libu</div><div class="tag">La vida se construye</div></footer>
+</main>
+<script>
+(()=>{'use strict';
+const ENDPOINT='https://script.google.com/macros/s/AKfycbzMT_VCg9fVDdGtnsEyB94G0KKAyZTlE0F7zNuoXbef8aw_nmI97Qm7SqPIj4LHWoEFEg/exec',VERSION='plano2027_v1';
+const LS={get(k){try{return localStorage.getItem(k)}catch(x){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(x){}}};
+let q;try{q=new URLSearchParams(location.search)}catch(x){q=new URLSearchParams()}
+const g=k=>(q.get(k)||'').slice(0,80);
+const origen={source:g('utm_source')||'directo',medium:g('utm_medium'),campaign:g('utm_campaign'),content:g('utm_content')};
+let session=LS.get('pesdal_plano_session');if(!session){session=Math.random().toString(36).slice(2)+Date.now().toString(36);LS.set('pesdal_plano_session',session)}
+function track(name,data){const body=JSON.stringify({name,data:Object.assign({herramienta:'plano2027'},data||{}),t:Date.now(),session,assessment:'',version:VERSION,origen});
+try{if(!(navigator.sendBeacon&&navigator.sendBeacon(ENDPOINT,new Blob([body],{type:'text/plain;charset=UTF-8'}))))fetch(ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=UTF-8'},body})}catch(x){}}
+track('plano_visita',{});
+document.getElementById('copia').addEventListener('click',()=>track('plano_copia_click',{}));
+document.getElementById('pdf').addEventListener('click',()=>track('plano_pdf_click',{}));
+// El Escáner hereda el canal de origen y queda marcado como "desde-plano2027".
+const e=document.getElementById('escaner'),p=new URLSearchParams();
+p.set('utm_source',origen.source);if(origen.medium)p.set('utm_medium',origen.medium);p.set('utm_campaign',origen.campaign||'no-repitas-el-ano');p.set('utm_content','desde-plano2027');
+e.href='../?'+p.toString();e.addEventListener('click',()=>track('plano_escaner_click',{}));
+})();
+</script></body></html>
